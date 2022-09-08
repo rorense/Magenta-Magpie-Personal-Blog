@@ -1,0 +1,16 @@
+<section class="latest-news container">
+    <h1 class="text-center">Latest News</h1>
+
+    <div class="latest-news-grid container">
+        {{#each latestNews}}
+            <div class="latest-news-card container">
+                <h2>{{this.title}}</h2>
+                <img src="{{this.urlToImage}}">
+                <p>{{this.content}}</p>
+                <div class="continue-reading-link">
+                    <a href="{{this.url}}">Continue Reading ></a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</section>

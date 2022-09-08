@@ -1,0 +1,24 @@
+<div class="other-blog-posts-card">
+    <h2>Other Blog Posts</h2>
+    <div class="other-articles-container">
+        {{#each otherArticles}}
+            <div class="other-articles-container-2 card">
+                <div class="other-articles-container-3">
+                    <div class="oth-article-col-1">
+                        <div><p><a href="/articles/{{this.id}}">
+                            <h4>{{this.title}}</h4></a></p></div>
+                        <div class="other-user-date"><p><i class="fa fa-user-o"
+                                                           aria-hidden="true"></i> {{this.authorName}}</p>
+                        </div>
+                        <div class="other-user-date"><p><i class="fa fa-calendar"
+                                                           aria-hidden="true"></i> {{this.lastUpdated}}
+                        </p></div>
+                    </div>
+                    <div class="oth-article-col-2">
+                        <img src="/images/articles/thumbnails/{{this.coverPhoto}}">
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

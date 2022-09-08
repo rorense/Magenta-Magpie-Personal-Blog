@@ -1,0 +1,43 @@
+<h1>About</h1>
+
+<h1 class="text-center">PGCertIT: Programming with Web Technologies</h1>
+<h2 class="text-center">COMPSCI 719 Final Project - A Personal Blogging System</h2>
+
+<p>
+    In this project, we have developed a blogging website using the skills we have learnt throughout
+    the course. The project gave us the opportunity to show how we can use online
+    resources to discover and apply content not taught within the course.
+</p>
+<p>
+    Through the website, users can register for an account, which is needed to be able to post
+    articles and to leave comments on others. When logged in, they have full control of the
+    content they have authored: creating, updating and deleting their content and comments.
+</p>
+<p>
+    We've given a list of compulsory requirements for the blogging system, which we have
+    implemented. This have given us the opportunity to show our creativity and / or technical
+    skills by adding extra feature(s).
+</p>
+
+<h2 class="text-center">Our Team</h2>
+<div class="about-team-container">
+    {{#each about}}
+        <div class="about-team-card card">
+            <div class="about-team-photo">
+                <img src="{{this.imageUrl}}">
+            </div>
+            <div class="about-team-info">
+                <h1>{{this.name}}</h1>
+                <p><span class="label">Role: </span>{{this.role}}</p>
+                <p><span class="label">About: </span>{{this.about}}</p>
+                <p><span class="label display-inline-block">Follow us on Social Media: </span></p>
+                <div class="social-media-icons display-inline-block">
+                    <a href="https://www.github.com" class="fa fa-github"></a>
+                    <a href="https://www.linkedin.com" class="fa fa-linkedin"></a>
+                    <a href="https://www.twitter.com" class="fa fa-twitter"></a>
+                    <a href="mailto:Hello World" class="fa fa-envelope"></a>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>

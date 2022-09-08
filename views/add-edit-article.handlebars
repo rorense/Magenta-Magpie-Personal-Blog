@@ -1,0 +1,51 @@
+{{#unless isAdd}}
+    {{>confirmation-message-modal}}
+{{/unless}}
+
+<h1>{{#if isAdd}}Create Article{{else}}Edit Article{{/if}}</h1>
+
+<form action="/articles/{{#if isAdd}}add{{else}}edit{{/if}}" method="POST" enctype="multipart/form-data">
+
+    <!--Do not display to the user but default a value that will be submitted to the POST endpoint-->
+    <div class="form-group display-none">
+        <label for="articleId">Id</label>
+        <input type="text" name="id" id="articleId" class="form-control" readonly value={{#if
+            article.id}}{{article.id}}{{else}}"NEW"{{/if}}>
+    </div>
+
+    <div class="form-group">
+        <label for="category">Category</label>
+        <select name="category" id="category" class="form-control">
+            {{#each categories}}
+                <option value={{this.id}}{{#ifEquals ../article.category this.id}}
+                        selected{{/ifEquals}}>{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" class="form-control"
+               {{#if article.title}}value="{{article.title}}"{{/if}}>
+    </div>
+
+    <div class="form-group">
+        <label for="article-content-textarea">Content</label>
+        <textarea name="content" id="article-content-textarea" class="form-control">{{#if
+                article.content}}{{article.content}}{{/if}}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label class="file-upload" for="fileUpload">{{#if isAdd}}Add{{else}}Change{{/if}} Cover Photo:</label>
+        <input id="fileUpload" type="file" name="coverPhoto" accept=".png,.jpg,.jpeg,.bmp,.gif"{{#if isAdd}}
+               required{{/if}}>
+    </div>
+
+    <div class="flex-row justify-center align-center">
+        <a href="/admin" class="button button-secondary">Cancel</a>
+        {{#unless isAdd}}
+            <a href="#" id="delete-article-btn" class="button button-secondary">Delete</a>
+        {{/unless}}
+        <button type="submit" class="button button-primary">Save</button>
+    </div>
+</form>

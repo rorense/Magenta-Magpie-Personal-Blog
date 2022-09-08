@@ -1,0 +1,35 @@
+<h2>Leave a comment</h2>
+
+<div class="comments-container">
+    <form action="/articles/comments" method="POST">
+        {{#unless loggedIn}}
+            <label for="txtAddCommentName">Name:</label>
+            <input type="text" id="txtAddCommentName" name="name" required>
+        {{/unless}}
+        <label for="textareaAddComments">Comments:</label>
+        <textarea id="textareaAddComments" name="comments"
+                  placeholder="Leave a comment..." required></textarea>
+        <button type="submit" class="button button-primary">Submit</button>
+    </form>
+</div>
+
+<h2>{{commentsCount}} Comments</h2>
+
+<div class="comments">
+    {{#each filledComments}}
+        <div class="card comments-card">
+            <div>
+                {{>comments-details}}
+            </div>
+
+            {{#each this.replies}}
+                <div class="comments-reply-card">
+                    <div>
+                        {{>comments-details}}
+                    </div>
+                </div>
+            {{/each}}
+
+        </div>
+    {{/each}}
+</div>

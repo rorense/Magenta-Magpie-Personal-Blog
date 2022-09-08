@@ -1,0 +1,43 @@
+<div class="view-article-grid">
+
+    <div class="view-article-col-1">
+
+        <h1 class="branding-secondary-2-color">{{article.title}}</h1>
+
+        <div class="article-group-info">
+            <div class="user-date-container"><span class="article-author-link">
+                                <a href="/articles/author/{{author.id}}"><i class="fa fa-user-o"
+                                                                              aria-hidden="true"></i> {{author.name}}
+                                </a>
+                            </span> | <i
+                    class="fa fa-calendar"
+                    aria-hidden="true"></i> {{article.lastUpdated}} |
+                <a href="/articles/category/{{article.category}}" class="tag">{{article.categoryName}}</a>
+            </div>
+            <div class="social-media-icons">
+                <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+                <a href="https://www.linkedin.com" class="fa fa-linkedin"></a>
+                <a href="https://www.twitter.com" class="fa fa-twitter"></a>
+                <a href="mailto:?subject={{article.title}}&body=http://localhost:3000/articles/{{article.id}}" class="fa fa-envelope"></a>
+            </div>
+        </div>
+
+        <img src="/images/articles/{{article.coverPhoto}}" class="width-100pct">
+
+        {{{article.content}}}
+
+        <hr>
+
+        {{>comments}}
+
+    </div>
+
+    <hr class="article-author-divider">
+
+    <div class="view-article-col-2">
+        {{>about-author}}
+        <hr>
+        {{>other-blog-posts}}
+    </div>
+
+</div>

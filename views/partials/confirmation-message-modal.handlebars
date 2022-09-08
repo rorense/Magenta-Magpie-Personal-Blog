@@ -1,0 +1,17 @@
+<div id="confirmation-modal" class="modal">
+    <div class="modal-content animate">
+        <div class="modal-logo-container">
+            <div id="close-modal-btn" class="close-button" title="Close Modal"><i class="fa fa-times"
+                                                                                  aria-hidden="true"></i>
+            </div>
+        </div>
+        <div>
+            {{#if inEditAccount}}
+                {{>delete-user-confirmation-message}}
+            {{/if}}
+            {{#if inEditArticle}}
+                {{>delete-article-confirmation-message}}
+            {{/if}}
+        </div>
+    </div>
+</div>

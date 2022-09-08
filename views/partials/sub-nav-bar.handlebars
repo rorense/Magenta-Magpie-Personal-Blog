@@ -1,0 +1,18 @@
+<nav id="subnav" class="nav sub-navbar">
+    <div class="sub-navbar-btn-container">
+        <a href="/" class="nav-button sub-navbar-btn">Home</a>
+    </div>
+    <div class="sub-navbar-btn-container dropdown">
+        <button class="dropbtn sub-navbar-btn">Categories <i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+            {{#each categories}}
+                <a href="/articles/category/{{this.id}}">{{this.name}}</a>
+            {{/each}}
+        </div>
+    </div>
+    {{#if loggedIn}}
+        <div class="sub-navbar-btn-container">
+            <a href="/admin" class="nav-button sub-navbar-btn">Admin</a>
+        </div>
+    {{/if}}
+</nav>

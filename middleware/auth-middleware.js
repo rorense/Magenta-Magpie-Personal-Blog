@@ -1,0 +1,23 @@
+const userDao = require("../modules/users-dao.js");
+
+async function addUserToLocals(req, res, next) {
+    const user = await userDao.retrieveUserWithAuthToken(req.cookies.authToken);
+    res.locals.loggedIn = (user !== undefined);
+    res.locals.user = user;
+    next();
+}
+
+function verifyAuthenticated(req, res, next) {
+    if (res.locals.user) {
+        next();
+    }
+    else {
+        res.locals.loggedIn = false;
+        res.redirect("./login");
+    }
+}
+
+module.exports = {
+    addUserToLocals,
+    verifyAuthenticated
+}

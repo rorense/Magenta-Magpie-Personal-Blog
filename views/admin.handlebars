@@ -1,0 +1,99 @@
+<h1>Kia Ora, {{user.name}}!</h1>
+
+<div class="profile-container">
+    <div class="profile-avatar">
+        <img src="./images/avatars/avatar{{user.avatarId}}.svg"><br>
+    </div>
+    <div class="profile-details">
+        <p><span class="label">Username:</span> {{user.username}}</p>
+        <p><span class="label">About Me:</span> {{user.aboutMe}}</p>
+        <p><span class="label">Date of Birth:</span> {{user.dateOfBirth}}</p>
+    </div>
+</div>
+
+<div class="profile-button-group">
+    <a href="./articles/add" class="button button-primary">Add an Article</a>
+    <a href="./accounts/{{user.id}}/edit" class="button button-secondary">Edit Profile</a>
+</div>
+
+{{#if articles}}
+    <div class="article-table-container-small">
+        <table class="article-table2">
+            <tbody>
+            <tr>
+                <th>Articles</th>
+            </tr>
+
+            {{#each articles}}
+                <tr class="article-table2-row">
+                    <td>
+                        <ul>
+                            <li>
+                                <div class="table-label">ID</div>
+                                <div class="table-field">{{this.id}}</div>
+                            </li>
+                            <li>
+                                <div class="table-label">Title</div>
+                                <div class="table-field">{{this.title}}</div>
+                            </li>
+                            <li>
+                                <div class="table-label">Content</div>
+                                <div class="table-field">{{{this.truncatedContent}}}</div>
+                            </li>
+                            <li>
+                                <div class="table-label">Cover Photo</div>
+                                <div class="table-field"><img src="/images/articles/thumbnails/{{this.coverPhoto}}">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="table-label">Last Updated</div>
+                                <div class="table-field">{{this.lastUpdated}}</div>
+                            </li>
+                            <li>
+                                <div class="table-label">Category</div>
+                                <div class="table-field">{{this.categoryName}}</div>
+                            </li>
+                            <li>
+                                <div><a href="/articles/{{this.id}}" class="button button-secondary">Preview</a></div>
+                                <div><a href="/articles/{{this.id}}/edit" class="button button-primary">Edit</a></div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="article-table-container-large">
+        <table class="article-table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Cover Photo</th>
+                <th>Last Updated</th>
+                <th>Category</th>
+                <th>Preview</th>
+                <th>Edit</th>
+            </tr>
+
+            {{#each articles}}
+                <tr class="article-table-row">
+                    <td>{{this.id}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{{this.truncatedContent}}}</td>
+                    <td><img src="/images/articles/thumbnails/{{this.coverPhoto}}"></td>
+                    <td>{{this.lastUpdated}}</td>
+                    <td>{{this.categoryName}}</td>
+                    <td><a href="/articles/{{this.id}}" class="article-preview-link"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                    <td><a href="/articles/{{this.id}}/edit" class="article-edit-link"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+{{else}}
+    <h1 class="text-center">Wow, look at this empty space! Add an article to start.</h1>
+{{/if}}

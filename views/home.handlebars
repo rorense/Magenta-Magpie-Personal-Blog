@@ -1,0 +1,12 @@
+<div class="container">
+
+    <h1 id="top" class="text-center">Recent Blog Posts</h1>
+    {{>all-articles}}
+    {{>pagination}}
+
+</div>
+
+{{#if latestNews}}
+    <hr>
+    {{>latest-news}}
+{{/if}}

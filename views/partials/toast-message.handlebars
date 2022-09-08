@@ -1,0 +1,12 @@
+<div class="toast-message-container{{#if toastType}} toast-{{toastType}}{{/if}}">
+    <div class="toast-message-icon">
+        {{#ifEquals toastType "success"}}
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+        {{/ifEquals}}
+        {{#ifEquals toastType "error"}}
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+        {{/ifEquals}}
+    </div>
+    <div class="toast-message">{{toastMessage}}</div>
+    <div class="close-toast-btn">&times;</div>
+</div>

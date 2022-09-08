@@ -1,0 +1,37 @@
+<section class="article2-parent-container">
+    {{#each paginatedResults.articles}}
+        <div class="article2 card">
+            <div class="article2-container">
+                <div class="article2-col-1">
+                    <div class="article-title padding-5px">
+                        <h2>{{this.title}}</h2>
+                    </div>
+                    <div class="article-author-date-container">
+                            <span class="article-author-link">
+                                <a href="/articles/author/{{this.createdBy}}"><i class="fa fa-user-o"
+                                                                                 aria-hidden="true"></i> {{this.authorName}}
+                                </a>
+                            </span>
+                        <span class="pipe-char">|</span>
+                        <span class="article-date">
+                                <i class="fa fa-calendar" aria-hidden="true"></i> {{this.lastUpdated}}
+                            </span>
+                        <span class="pipe-char">|</span>
+                        <span>
+                                <a href="/articles/category/{{this.category}}" class="tag">{{this.categoryName}}</a>
+                            </span>
+                    </div>
+                    <div class="padding-5px">
+                        <p>{{{this.truncatedContent}}}</p>
+                    </div>
+                    <div class="continue-reading-link">
+                        <a href="/articles/{{this.id}}">Continue Reading ></a>
+                    </div>
+                </div>
+                <div class="article2-col-2">
+                    <img src="/images/articles/thumbnails/{{this.coverPhoto}}">
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</section>

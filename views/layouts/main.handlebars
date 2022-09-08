@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    {{#if title}}
+        <title>{{title}}</title>
+    {{else}}
+        <title>Magenta Magpie Blog</title>
+    {{/if}}
+
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/script/client.js"></script>
+
+    <!-- Google Fonts API -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
+
+    <!-- Load an icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Script element sourcing TinyMCE -->
+    <script type="application/javascript" src= "/tinymce/tinymce.min.js"></script>
+
+</head>
+
+<body class="body-container">
+
+<section>
+
+    {{>toast-message}}
+
+    {{#unless loggedIn}}
+        {{>login-modal}}
+    {{/unless}}
+
+    {{>header}}
+
+    {{>nav-bar}}
+
+    {{>sub-nav-bar}}
+
+    {{#if onHomepage}}
+        {{>hero-image}}
+    {{/if}}
+
+    <!-- 3-column layout -->
+    <div class="body">
+
+        <!-- Column 1 -->
+        <div class="col-secondary"></div>
+
+        <!-- Column 2 -->
+        <div class="col-primary">
+            {{{body}}}
+        </div>
+
+        <!-- Column 3 -->
+        <div class="col-secondary"></div>
+
+    </div>
+
+</section>
+
+{{>footer}}
+
+</body>
+
+</html>

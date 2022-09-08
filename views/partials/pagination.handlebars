@@ -1,0 +1,44 @@
+<section class="pagination container">
+
+    {{#ifNotEquals paginatedResults.currentPage 1}}
+        <div>
+            <a href="{{#setTargetUrl paginatedResults.targetUrl.path 1
+                                     paginatedResults.targetUrl.anchor}}{{/setTargetUrl}}" class="pagination-button">
+                <i class="fa fa-step-backward" aria-hidden="true"></i>
+            </a>
+        </div>
+    {{/ifNotEquals}}
+
+    {{#if paginatedResults.previousPage}}
+        <div>
+            <a href="{{#setTargetUrl paginatedResults.targetUrl.path paginatedResults.previousPage
+                                     paginatedResults.targetUrl.anchor}}{{/setTargetUrl}}" class="pagination-button">
+                <i class="fa fa-backward" aria-hidden="true"></i>
+            </a>
+        </div>
+    {{/if}}
+
+    <div class="page-n-of-m">
+        <div>Page <strong>{{paginatedResults.currentPage}}</strong>
+            of <strong>{{paginatedResults.totalPageNumbers}}</strong></div>
+    </div>
+
+    {{#if paginatedResults.nextPage}}
+        <div>
+            <a href="{{#setTargetUrl paginatedResults.targetUrl.path paginatedResults.nextPage
+                                     paginatedResults.targetUrl.anchor}}{{/setTargetUrl}}" class="pagination-button">
+                <i class="fa fa-forward" aria-hidden="true"></i>
+            </a>
+        </div>
+    {{/if}}
+
+    {{#ifNotEquals paginatedResults.currentPage paginatedResults.totalPageNumbers}}
+        <div>
+            <a href="{{#setTargetUrl paginatedResults.targetUrl.path paginatedResults.totalPageNumbers
+                                     paginatedResults.targetUrl.anchor}}{{/setTargetUrl}}" class="pagination-button">
+                <i class="fa fa-step-forward" aria-hidden="true"></i>
+            </a>
+        </div>
+    {{/ifNotEquals}}
+
+</section>

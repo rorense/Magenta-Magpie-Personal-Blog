@@ -1,0 +1,54 @@
+<nav class="nav">
+
+    <div><img id="navbar-logo" src="/images/branding/logo-white.svg"></div>
+
+    <a href="/" id="navbar-home" class="nav-button{{#if onHomepage}} active{{/if}}">Home</a>
+
+    <div id="navbar-categories" class="dropdown">
+        <button class="dropbtn{{#if onCategories}} active{{/if}}">Categories <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            {{#each categories}}
+                <a href="/articles/category/{{this.id}}">{{this.name}}</a>
+            {{/each}}
+        </div>
+    </div>
+
+    {{#if loggedIn}}
+        <div id="navbar-admin">
+            <a href="/admin" class="nav-button{{#if onAdminPage}} active{{/if}}">Admin</a>
+        </div>
+    {{/if}}
+
+    <div id="navbar-search" class="search-container">
+        <form action="/search" method="GET">
+            <input type="text" placeholder="Search for titles, contents, authors..." name="keyword">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+
+    {{#if loggedIn}}
+        <div id="navbar-profile" class="dropdown">
+            <button class="dropbtn user-profile"><i class="fa fa-user-o" aria-hidden="true"></i> {{user.name}} <i
+                    class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content user-profile">
+                <div>
+                    <img src="/images/avatars/avatar{{user.avatarId}}.svg">
+                </div>
+                <h3>{{user.name}}</h3>
+                <h4>@{{user.username}}</h4>
+                <hr>
+                <a href="/articles/add">Add an Article</a>
+                <a href="/accounts/{{user.id}}/edit">Edit Profile</a>
+                <a href="/logout">Log Out</a>
+            </div>
+        </div>
+    {{/if}}
+
+    <div id="navbar-hamburger">
+        <a href="#" id="navbar-hamburger-button" class="nav-button">
+            <i class="fa fa-bars font-size-1point5em"></i>
+        </a>
+    </div>
+</nav>

@@ -1,0 +1,8 @@
+<div class="container">
+    <h1 id="top" class="text-center">Search Results for <span class="branding-primary-color">{{keywords}}</span></h1>
+    {{#if articleIsEmpty}}
+    <h1 id="top" class="text-center">No Articles Match your search...</h1>
+    {{/if}}
+    {{>all-articles}}
+    {{>pagination}}
+</div>

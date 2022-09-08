@@ -1,0 +1,156 @@
+/* Variables */
+/*****************************************************************/
+:root {
+    /* Branding */
+    --branding-name-font: 'Damion';
+    --branding-primary-color: darkmagenta;
+    --branding-secondary-1-color: magenta;
+    --branding-secondary-2-color: #C70074;
+    --branding-tertiary-1-color: #82708f;
+    --branding-tertiary-2-color: #072940;
+}
+
+/* Flex */
+/*****************************************************************/
+.flex-col, .flex-row {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-se {
+    justify-content: space-evenly;
+}
+
+.justify-sa {
+    justify-content: space-around;
+}
+
+.justify-sb {
+    justify-content: space-between;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}
+
+.align-self-stretch {
+    align-self: stretch;
+}
+
+/*****************************************************************/
+
+
+/* Grid */
+/*****************************************************************/
+.grid-3 {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+/*****************************************************************/
+
+
+/* Misc */
+/*****************************************************************/
+.d-block {
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-end {
+    text-align: end;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.mb {
+    margin-bottom: 10px;
+}
+
+.font-size-1point5em {
+    font-size: 1.5em !important;
+}
+
+.display-block {
+    display: block !important;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.width-100pct {
+    width: 100%;
+}
+
+/*****************************************************************/
+
+/* Branding Colors */
+/*****************************************************************/
+.branding-primary-color {
+    color: var(--branding-primary-color) !important;
+}
+
+.branding-secondary-1-color {
+    color: var(--branding-secondary-1-color) !important;
+}
+
+.branding-secondary-2-color {
+    color: var(--branding-secondary-2-color) !important;
+}
+
+.branding-tertiary-1-color {
+    color: var(--branding-tertiary-1-color) !important;
+}
+
+.branding-tertiary-2-color {
+    color: var(--branding-tertiary-2-color) !important;
+}
+
+/*****************************************************************/

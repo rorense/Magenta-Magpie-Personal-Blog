@@ -1,0 +1,100 @@
+{{#unless isNew}}
+    {{>confirmation-message-modal}}
+{{/unless}}
+
+<div class="container">
+
+    <h1>{{#if isNew}}Create Account{{else}}Edit Account{{/if}}</h1>
+
+    <form id="account-form" action="/accounts/{{#if isNew}}create{{else}}edit{{/if}}" method="POST">
+
+        <!--Do not display to the user but default a value that will be submitted to the POST endpoint-->
+        <div class="flex-col mb display-none">
+            <label for="txtUserId">Username:</label>
+            <input type="text" name="id" id="txtUserId" readonly value={{#if user.id}}{{user.id}}{{else}}"NEW"{{/if}}>
+        </div>
+
+        {{#if isNew}}
+            <div class="flex-col mb">
+                <label for="txtUsername2">Username:</label>
+                <a id="displayError" class="username-match-status"></a>
+                <input type="text" name="username" id="txtUsername2" required
+                       {{#if user.username}}value="{{user.username}}"{{/if}}>
+            </div>
+
+            <div class="flex-col mb">
+                <label for="txtPassword">Password:</label>
+                <input type="password" name="password" id="txtPassword" required
+                       {{#if user.password}}value="{{user.password}}"{{/if}}>
+            </div>
+
+            <div class="flex-col mb">
+                <label for="text">Re-enter Password:</label>
+                <input type="password" name="password2" id="txtPassword2" required
+                       {{#if user.password2}}value="{{user.password2}}"{{/if}}>
+            </div>
+        {{/if}}
+
+        <div class="flex-col mb">
+            <label for="txtName">Name:</label>
+            <input type="text" name="name" id="txtName" required {{#if user.name}}value="{{user.name}}"{{/if}}>
+        </div>
+
+        <div class="flex-col mb">
+            <label for="dateDateOfBirth">Date of Birth:</label>
+            <input type="date" name="dateOfBirth" id="dateDateOfBirth" required
+                   {{#if user.dateOfBirth}}value="{{user.dateOfBirth}}"{{/if}}>
+        </div>
+
+        <div class="flex-col mb">
+            <label for="textDescription">About Me:</label>
+            <textarea rows="5" name="aboutMe" id="textDescription"
+                      placeholder="Write a brief description about yourself..."
+                      required>{{#if user.aboutMe}}{{user.aboutMe}}{{/if}}</textarea>
+        </div>
+
+        <div class="flex-col mb">
+            <label>Pick your Avatar:</label>
+            <div class="avatars-grid">
+                <div class="avatar-option-container">
+                    <input type="radio" id="avatarId1" name="avatarId" value="1"{{#ifEquals user.avatarId 1}}
+                           checked{{/ifEquals}} required>
+                    <label for="avatarId1" id="avatar-option-1" class="avatar-radio-btn-img"></label>
+                </div>
+
+                <div class="avatar-option-container">
+                    <input type="radio" id="avatarId2" name="avatarId" value="2"{{#ifEquals user.avatarId 2}}
+                           checked{{/ifEquals}}>
+                    <label for="avatarId2" id="avatar-option-2" class="avatar-radio-btn-img"></label>
+                </div>
+
+                <div class="avatar-option-container">
+                    <input type="radio" id="avatarId3" name="avatarId" value="3"{{#ifEquals user.avatarId 3}}
+                           checked{{/ifEquals}}>
+                    <label for="avatarId3" id="avatar-option-3" class="avatar-radio-btn-img"></label>
+                </div>
+
+                <div class="avatar-option-container">
+                    <input type="radio" id="avatarId4" name="avatarId" value="4"{{#ifEquals user.avatarId 4}}
+                           checked{{/ifEquals}}>
+                    <label for="avatarId4" id="avatar-option-4" class="avatar-radio-btn-img"></label>
+                </div>
+
+                <div class="avatar-option-container">
+                    <input type="radio" id="avatarId5" name="avatarId" value="5"{{#ifEquals user.avatarId 5}}
+                           checked{{/ifEquals}}>
+                    <label for="avatarId5" id="avatar-option-5" class="avatar-radio-btn-img"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-row justify-center align-center">
+            {{#unless isNew}}
+                <a href="/admin" class="button button-secondary">Cancel</a>
+                <a id="delete-user-btn" href="#" class="button button-secondary">Delete</a>
+                <a href="/accounts/resetPassword" class="button button-secondary">Reset Password</a>
+            {{/unless}}
+            <button id="account-save-btn" type="submit" class="button button-primary">Save</button>
+        </div>
+    </form>
+</div>

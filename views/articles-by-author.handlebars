@@ -1,0 +1,15 @@
+<div class="article-author-container">
+
+    <div class="article-author-col-1">
+        {{>about-author}}
+    </div>
+
+    <div class="article-author-col-2">
+        <div class="container">
+            <h1 class="text-center" id="top">Blog Posts written by <span class="h1-highlight">{{author.name}}</span></h1>
+            {{>all-articles}}
+            {{>pagination}}
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,29 @@
+<div id="login-modal" class="modal">
+
+    <form class="modal-content animate" action="/login" method="POST">
+
+        <div class="modal-logo-container">
+            <img src="/images/branding/logo-magenta.svg">
+            <h1 class="branding-secondary-2-color">Welcome to Magenta Magpie Blog!</h1>
+            <span id="close-modal-btn" class="close-button" title="Close Modal"><i class="fa fa-times" aria-hidden="true"></i></span>
+        </div>
+
+        <div class="flex-col mb">
+            <label for="txtUsernameModal">Username:</label>
+            <input type="text" name="username" id="txtUsernameModal" required>
+        </div>
+
+        <div class="flex-col mb">
+            <label for="txtPasswordModal">Password:</label>
+            <input type="password" name="password" id="txtPasswordModal" required>
+        </div>
+
+        <div class="flex-row justify-center align-center">
+            <button type="submit" class="button button-tertiary-2">Sign in</button>
+        </div>
+
+        <p class="text-center">Don't have an account yet? <a href="/accounts/create">Create one here.</a></p>
+
+    </form>
+
+</div>

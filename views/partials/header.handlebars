@@ -1,0 +1,18 @@
+<div id="header">
+    <div class="header-col-1">
+    </div>
+    <div class="header-col-2">
+        <h1 class="magenta-magpie-brand">Magenta Magpie</h1>
+    </div>
+    <div class="header-col-3 header-links">
+        {{#unless loggedIn}}
+            <a href="#" id="sign-in-link"><i class="fa fa-lock" aria-hidden="true"></i> Sign in</a>
+        {{/unless}}
+        {{#unless loggedIn}}
+            <a href="/accounts/create" id="register-link"><i class="fa fa-user" aria-hidden="true"></i> Register</a>
+        {{/unless}}
+        {{#if loggedIn}}
+            <a href="/logout" id="log-out-link"><i class="fa fa-sign-in" aria-hidden="true"></i> Log out</a>
+        {{/if}}
+    </div>
+</div>

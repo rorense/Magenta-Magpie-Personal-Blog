@@ -1,0 +1,57 @@
+<h1>Contact Us</h1>
+
+<div class="contact-container">
+    <h3>Address</h3>
+    School of Computer Science<br/>
+    Room 405, Level 4 <br/>
+    Science Centre Building 303<br/>
+    38 Princes Street<br/>
+    Auckland 1010<br/>
+</div>
+ 
+<br>
+
+<div class="contact-container">
+    <h3>E-mail</h3>
+    <a href = "mailto: magenta-magpie@aucklanduni.ac.nz">magenta-magpie@aucklanduni.ac.nz</a><br/>
+</div>
+
+<br>
+
+<div class="contact-container">
+    <h3>Phone Number</h3>
+    +64 9 373 7599<br/>
+</div>
+
+<br>
+
+<hr>
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+    const googleMap = document.querySelector("#googleMap");
+
+    // Initialize and add the map
+    function initMap() {
+        // The location of University of Auckland
+        const uoa = {lat: -36.8523378, lng: 174.7691073};
+        // The map, centered at UoA
+        const map = new google.maps.Map(googleMap, {
+            zoom: 15,
+            center: uoa,
+        });
+        // The marker, positioned at UoA
+        const marker = new google.maps.Marker({
+            position: uoa,
+            map: map,
+        });
+    }
+</script>
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<!-- WARNING: This apikey is linked to my google cloud billing account. Usage of the API is free at a certain point. Excess usage will start billing me -->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZgyuHf1TI3KVkDnaIqIg87ZvwKoNF65o&callback=initMap&libraries=&v=weekly"
+        async
+></script>
+
