@@ -1,6 +1,10 @@
 Final Project &ndash; A personal blogging system &ndash; Magenta Magpie Blog
 ==========
 
+#UPDATE
+Please visit the blog website here:
+https://magenta-magpie-blog.herokuapp.com/
+
 # Introduction
 In this project, we have developed a blogging website using the skills we have learnt throughout the COMPSCI 719 course. The project gave us the opportunity to show how we can use online resources to discover and apply content not taught within the course.
 
